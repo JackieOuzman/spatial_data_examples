@@ -80,7 +80,7 @@ group_by(plot_some_pts, hour ) %>%
 
 regions <- st_read(
   "SLA_selection_Region.shp")
-regions
+plot(regions)
 
 Av_area_state <- group_by(regions, STATE_CODE ) %>%
   summarise(
@@ -278,6 +278,7 @@ Oct_dec_ <-   subset(rain_crop, 10:12)
 jan_april <- subset(rain_crop, 1:4) 
 GS_rain <- stack(Oct_dec_, jan_april) 
 plot(GS_rain)
+nlayers(GS_rain)
 
 #use function to run raster maths
 #sum all the layers in the raster stack
